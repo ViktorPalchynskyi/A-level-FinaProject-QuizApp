@@ -1,0 +1,19 @@
+body {
+   margin: 0;
+   /* удаляем ненужный марджин у body */
+   min-width: 320px;
+   /* устанавливаем минимальную ширину страницы */
+   height: 100%;
+}
+
+.Layout{ 
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+}
+
+.Layout main { 
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+}
