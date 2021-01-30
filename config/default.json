@@ -1,0 +1,4 @@
+{
+   "mongoDB": "mongodb+srv://viktor:19980210@quizapp.z1qfk.mongodb.net/<dbname>?retryWrites=true&w=majority",
+   "start": "react-scripts start"
+}
