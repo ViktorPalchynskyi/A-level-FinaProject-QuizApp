@@ -7,7 +7,7 @@ const config = require('config');
 const User = require('../../model/User');
 
 router.post('/', async (req, res) => {
-   console.log(req.body);
+   
    const {email, password} = req.body;
 
    try{ 
