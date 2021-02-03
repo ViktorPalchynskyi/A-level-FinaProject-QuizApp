@@ -1,22 +1,34 @@
-import C from '../actions/actionType';
+import  C from '../actions/actionType';
 
 const initialState = {
-   token: '123jas2kll123j'
+   token: localStorage.getItem('token'),
+   isAuthenicated: null,
+   loading: true,
+   user:null
 };
 
-export default function authReducer(state = initialState, action) { 
-   switch (action.type) {
-      case C.AUTH_SUCCESS:
+export default function (state=initialState, action) {
+
+   const {type, payload} = action; 
+
+   switch (type) {
+      case C.REGISTER_SUCCESS:
+         localStorage.setItem('token', payload.token);
          return { 
             ...state,
-            token: action.token
+            ...payload,
+            isAuthenicated: true,
+            loading: false
          };
-      case C.AUTH_LOGOUT:
+
+      case C.REGISTER_FAIL:
+         localStorage.removeItem('token');
          return { 
             ...state,
-            token: null
+            token: null,
+            isAuthenicated: false,
+            loading: false
          };
-   
       default:
          return state;
    }

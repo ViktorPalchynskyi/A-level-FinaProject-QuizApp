@@ -43,6 +43,7 @@ export default class Drawer extends Component {
          links.push({to: '/quiz-creator', label:'Create quiz list', exact: true});
          links.push({to: '/logout', label:'Logout', exact: true});
       } else{ 
+         links.push({to: '/login', label:'Login', exact: true})
          links.push({to: '/register', label:'Register', exact: true})
       }
 

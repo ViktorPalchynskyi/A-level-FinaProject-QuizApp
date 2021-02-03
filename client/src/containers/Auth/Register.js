@@ -1,25 +1,47 @@
-import React from 'react';
-import {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {register} from '../../redux/actions/authActionCreator';
+import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Register = () => {
    const [formDate, setFormData] = useState({
-      name: '',
       email: '',
       password: '',
       password2: ''
    });
 
-   const {name, email, password, password2} = formDate;
+   const {email, password, password2} = formDate;
 
    const onChange = e => setFormData({...formDate, [e.target.name]: e.target.value});
 
-   const onSubmit = e => { 
+   const onSubmit = async e => { 
       e.preventDefault();
       if(password !== password2){ 
          console.log('Password do not match');
       } else { 
-         console.log(formDate);
+         console.log('regiter');
+         const newUser = {
+   
+            email,
+            password
+         };
+         try {
+            const config = { 
+               headers: { 
+                  'Content-Type': 'application/json'
+               }
+            };
+
+            const body = JSON.stringify(newUser);
+
+            const res = await axios.post('/api/users', body, config);
+            console.log(res.data);
+         } catch (err) {
+            console.error(err.response.data);
+         }
+         // register({email, password});
       }
    };
 
@@ -29,7 +51,7 @@ const Register = () => {
          <h1 className="large text-primary">Sign Up</h1>
          <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
          <form className="form" onSubmit={e => onSubmit(e)}>
-         <div className="form-group">
+         {/* <div className="form-group">
             <input 
             type="text" 
             placeholder="Name" 
@@ -38,7 +60,7 @@ const Register = () => {
             onChange={e => onChange(e)}
             required 
             />
-         </div>
+         </div> */}
          <div className="form-group">
             <input 
             type="email" 
@@ -83,4 +105,8 @@ const Register = () => {
    );
 };
 
-export default Register;
+Register.propTypes = { 
+  register: PropTypes.func.isRequired,
+}
+
+export default connect(null, {register})(Register);
