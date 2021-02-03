@@ -31,21 +31,19 @@ export default class Drawer extends Component {
    
       const cls = [classees.Drawer];
 
-      console.log(this.props)
-
       if(!this.props.isOpen) { 
          cls.push(classees.close)
       }
 
       const links = [
-         {to: '/quiz', label:'Спосок', exact: true}    
+         {to: '/quiz', label:'Quiz List', exact: true}    
       ];
 
       if(this.props.isAuthenticated) { 
-         links.push({to: '/quiz-creator', label:'Создать тест', exact: true});
-         links.push({to: '/logout', label:'Выйти', exact: true});
+         links.push({to: '/quiz-creator', label:'Create quiz list', exact: true});
+         links.push({to: '/logout', label:'Logout', exact: true});
       } else{ 
-         links.push({to: '/auth', label:'Авторизация', exact: true})
+         links.push({to: '/register', label:'Register', exact: true})
       }
 
       return(

@@ -2,8 +2,8 @@ import './App.css';
 import Layout from './hoc/Layout/Layout';
 import React, {Component} from 'react';
 import Quiz from './containers/Quiz/Quiz';
-import Auth from './containers/Auth/Auth';
 import Register from './containers/Auth/Register';
+import Login from './containers/Auth/Login';
 import QuizCreator from './containers/QuizCreator/QuizCreator';
 import QuizList from './containers/QuizList/QuizList';
 import Landing from './components/Landing/Landing';
@@ -23,10 +23,10 @@ class App extends Component {
 
     let routes = (
       <Switch>
-        <Route path="/auth" component={Auth} />
         <Route path="/quiz/:id" component={Quiz} />
         <Route path="/quiz" component={QuizList} />
         <Route path="/register" component={Register}/>
+        <Route path="/login" component={Login} />
         <Route path="/" exact component={Landing} />
         <Redirect to="/" />
       </Switch>

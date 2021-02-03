@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
    const [formDate, setFormData] = useState({
@@ -24,7 +25,7 @@ const Register = () => {
 
    return (
       <>
-      <div className="register"> 
+      <div className="auth"> 
          <h1 className="large text-primary">Sign Up</h1>
          <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
          <form className="form" onSubmit={e => onSubmit(e)}>
@@ -75,7 +76,7 @@ const Register = () => {
          <input type="submit" className="btn btn-primary" value="Register" />
          </form>
          <p className="my-1">
-         Already have an account? <a href="login.html">Sign In</a>
+         Already have an account? <Link to="/login">Sign In</Link>
          </p>
       </div>
       </>
