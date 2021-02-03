@@ -1,9 +1,12 @@
+import './App.css';
 import Layout from './hoc/Layout/Layout';
 import React, {Component} from 'react';
 import Quiz from './containers/Quiz/Quiz';
 import Auth from './containers/Auth/Auth';
+import Register from './containers/Auth/Register';
 import QuizCreator from './containers/QuizCreator/QuizCreator';
 import QuizList from './containers/QuizList/QuizList';
+import Landing from './components/Landing/Landing';
 import {Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Logout from './components/Logout/Logout';
@@ -13,7 +16,7 @@ class App extends Component {
 
   componentDidMount() {
     // this.props.autoLogin();
-    console.log(this.props.autoLogin)
+    console.log(this.props.autoLogin);
   }
 
   render() {
@@ -22,7 +25,9 @@ class App extends Component {
       <Switch>
         <Route path="/auth" component={Auth} />
         <Route path="/quiz/:id" component={Quiz} />
-        <Route path="/" exact component={QuizList} />
+        <Route path="/quiz" component={QuizList} />
+        <Route path="/register" component={Register}/>
+        <Route path="/" exact component={Landing} />
         <Redirect to="/" />
       </Switch>
     )
@@ -33,6 +38,7 @@ class App extends Component {
           <Route path="/quiz-creator" component={QuizCreator} />
           <Route path="/quiz/:id" component={Quiz} />
           <Route path="/logout" component={Logout} />
+          <Route path="/quiz" component={QuizList} />
           <Route path="/" exact component={QuizList} />
           <Redirect to="/" />
         </Switch>

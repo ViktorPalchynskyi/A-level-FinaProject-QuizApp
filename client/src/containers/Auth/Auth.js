@@ -100,7 +100,7 @@ class Auth extends Component {
     this.setState({
       formControls, isFormValid
     });
-  }
+  };
 
   renderInputs() {
     return Object.keys(this.state.formControls).map((controlName, index) => {
