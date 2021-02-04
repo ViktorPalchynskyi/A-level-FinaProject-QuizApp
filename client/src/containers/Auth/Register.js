@@ -3,9 +3,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {register} from '../../redux/actions/authActionCreator';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
-const Register = () => {
+const Register = ({register}) => {
    const [formDate, setFormData] = useState({
       email: '',
       password: '',
@@ -22,26 +21,7 @@ const Register = () => {
          console.log('Password do not match');
       } else { 
          console.log('regiter');
-         const newUser = {
-   
-            email,
-            password
-         };
-         try {
-            const config = { 
-               headers: { 
-                  'Content-Type': 'application/json'
-               }
-            };
-
-            const body = JSON.stringify(newUser);
-
-            const res = await axios.post('/api/users', body, config);
-            console.log(res.data);
-         } catch (err) {
-            console.error(err.response.data);
-         }
-         // register({email, password});
+         register({email, password});
       }
    };
 

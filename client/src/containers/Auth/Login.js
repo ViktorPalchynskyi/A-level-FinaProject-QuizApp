@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {login} from '../../redux/actions/authActionCreator';
+import { useState } from 'react';
 
-
-const Login = () => {
+const Login = ({login ,isAuthenicated}) => {
 
    const [formDate, setFormData] = useState({
       email: '',
@@ -16,7 +18,12 @@ const Login = () => {
    const onSubmit = async e => { 
       e.preventDefault();
       console.log('SUCCESS');
+      login(email, password);
    };
+
+   if(isAuthenicated) { 
+     return <Redirect to="/quiz"/>
+   }
 
    return (
       <div className="auth">
@@ -52,4 +59,13 @@ const Login = () => {
    );
 };
 
-export default Login;
+Login.propTypes = { 
+  login: PropTypes.func.isRequired,
+  isAuthenicated: PropTypes.bool
+}
+
+const mapStateToProps = state => ({ 
+  isAuthenicated: state.auth.isAuthenicated
+});
+
+export default connect(mapStateToProps, {login})(Login);

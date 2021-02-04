@@ -12,7 +12,16 @@ export default function (state=initialState, action) {
    const {type, payload} = action; 
 
    switch (type) {
+      case C.USER_LOADED: 
+      return { 
+         ...state, 
+         isAuthenicated: true,
+         loading: false,
+         user: payload
+      };
+
       case C.REGISTER_SUCCESS:
+      case C.LOGIN_SUCCESS:
          localStorage.setItem('token', payload.token);
          return { 
             ...state,
@@ -22,6 +31,10 @@ export default function (state=initialState, action) {
          };
 
       case C.REGISTER_FAIL:
+      case C.AUTH_ERROR: 
+      case C.LOGIN_FAIL:
+      case C.LOGOUT:
+         
          localStorage.removeItem('token');
          return { 
             ...state,
@@ -29,6 +42,9 @@ export default function (state=initialState, action) {
             isAuthenicated: false,
             loading: false
          };
+
+
+         
       default:
          return state;
    }

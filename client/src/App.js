@@ -9,7 +9,7 @@ import QuizList from './containers/QuizList/QuizList';
 import Landing from './components/Landing/Landing';
 import {Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-// import Logout from './components/Logout/Logout';
+import Logout from './components/Logout/Logout';
 // import {autoLogin} from './redux/actions/authActionCreator';
 
 class App extends Component {
@@ -38,6 +38,7 @@ class App extends Component {
           <Route path="/quiz-creator" component={QuizCreator} />
           <Route path="/quiz/:id" component={Quiz} />
           <Route path="/quiz" component={QuizList} />
+          <Route path="/logout" component={Logout} />
           <Route path="/" exact component={QuizList} />
           <Redirect to="/" />
         </Switch>

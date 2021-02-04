@@ -11,6 +11,9 @@ class Layout extends Component{
    };
 
    toggleMenuHandler= () => { 
+      console.log(this.props.isAuthenticated);
+      console.log(this.props);
+      
       this.setState({
          menu: !this.state.menu
       })
