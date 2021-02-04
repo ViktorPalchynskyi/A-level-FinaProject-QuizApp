@@ -12,7 +12,7 @@ export function fetchQuizes() {
          Object.keys(res.data).forEach((key, index) => { 
            quizes.push({
              id:key,
-             name: `Тест № ${index + 1}`
+             name: `Quiz № ${index + 1}`
            });
          });
          dispatch(fetchQuizesSuccess(quizes));

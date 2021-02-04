@@ -24,7 +24,6 @@ class QuizList extends Component {
 
   componentDidMount() {
     this.props.fetchQuizes();
-    
    }
 
   
@@ -33,7 +32,7 @@ class QuizList extends Component {
      return (
        <div className={classes.QuizList}>
          <div>
-           <h1>Список тестов</h1>
+           <h1>Quiz List</h1>
  
           {this.props.loading && this.props.quizes.length !== 0 ? 
             <Loader/> : 

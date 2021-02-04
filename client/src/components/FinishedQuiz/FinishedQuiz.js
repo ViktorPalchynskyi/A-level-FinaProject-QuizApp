@@ -31,12 +31,12 @@ export default props => {
          })}
          </ul>
 
-         <p>Правильно {successCount} из {props.quiz.length}</p>
+         <p>Сorrect {successCount} of  {props.quiz.length}</p>
          <div>
    
-            <Button onClick={props.onRetry} type='primary'>Повторить</Button>
+            <Button onClick={props.onRetry} type='primary'>Repeat</Button>
             <Link to="/">
-               <Button type='success'>Перейти в список тестов</Button>
+               <Button type='success'>Go to the list of quizes</Button>
             </Link>
          </div>
       </div>

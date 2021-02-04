@@ -10,14 +10,10 @@ import Landing from './components/Landing/Landing';
 import {Route, Switch, Redirect, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Logout from './components/Logout/Logout';
-// import {autoLogin} from './redux/actions/authActionCreator';
+import setAuthToken from './utils/setAuthToken';
 
 class App extends Component {
 
-  componentDidMount() {
-    // this.props.autoLogin();
-    // console.log(this.props.autoLogin);
-  }
 
   render() {
 
@@ -59,10 +55,5 @@ function mapStateToProps(state) {
   }
 }
 
-// function mapDispatchToProps(dispatch) { 
-//   return { 
-//     autoLogin:() => dispatch(autoLogin())
-//   }
-// }
 
 export default withRouter(connect(mapStateToProps)(App));

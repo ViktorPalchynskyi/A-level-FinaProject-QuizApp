@@ -8,7 +8,7 @@ export default props => (
             <strong>{props.answerNumber}.</strong>&nbsp;
             {props.question}
          </span>
-         <small>{props.answerNumber} из {props.quizLength}</small>
+         <small>{props.answerNumber} out of {props.quizLength}</small>
       </p>
 
     <AnswersList

@@ -23,6 +23,7 @@ export default props => {
             id={htmlFor}
             value={props.value}
             onChange={props.onChange}
+            placeholder
          />
         {isInvalid(props) ?  <span>{props.errorMessage || 'Введите верное значение'}</span> : null}
       </div>

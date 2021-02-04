@@ -8,8 +8,11 @@ const Landing = () => {
         <div className='landing-inner'>
           <h1 className='x-large'>Final Project Quiz App</h1>
           <p className='lead'>
-            Create a developer profile/portfolio, share posts and get help from
-            other developers
+            Technologys: 
+            <br/>
+            Frontend: Ract,Redux,React-Router, Redux-Thunk
+            <br/>
+            Backend: NodeJS, Express, MongoDB, Mongoose, REST API, Axios
           </p>
           <div className='buttons'>
             <Link to='/register' className='btn btn-primary'>
